@@ -1,0 +1,21 @@
+.press {
+  font-size: 24px;
+  margin-right: 12px;
+  margin-left: 12px;
+  padding: 6px 16px;
+}
+
+.press:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgrey;
+}
