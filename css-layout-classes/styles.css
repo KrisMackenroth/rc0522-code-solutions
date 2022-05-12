@@ -27,10 +27,18 @@ p {
 }
 
 .column-one-third {
-  display: flex;
-  flex-basis: auto;
+  width: calc(100% / 3);
 }
 
 .column-full {
   flex-basis: auto;
+  width: 100%;
+}
+
+.column-one-fourth {
+  width: calc(100% / 4);
+}
+
+.column-two-third {
+  width: calc(200% / 3);
 }
