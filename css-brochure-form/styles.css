@@ -20,9 +20,7 @@ label {
 }
 
 input {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  width: 100%;
   border-radius: 5px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -32,14 +30,11 @@ input {
   font-family: AtlasGrotesk, sans-serif;
   font-style: normal;
   font-weight: 300;
-  width: 500px;
   border: 1px solid grey;
 }
 
 #submit {
-  top: 10px;
-  position: relative;
-  left: 190px;
+  margin-top: 10px;
   display: block;
   text-align: center;
   color: white;
@@ -51,22 +46,16 @@ input {
   font-weight: 600;
   font-size: 17px;
   border: none;
+  margin-left: 380px;
 }
 
-#company {
-  padding-left: 530px;
-}
-
-#nombre {
-  padding-left: 530px;
-}
-
-#hiring {
-  padding-left: 530px;
+.flex {
+  display: block;
+  margin: auto;
+  width: 500px;
 }
 
 #how {
-  width: 500px;
   background-color: rgb(242 241 241);
   padding-top: 10px;
   padding-bottom: 10px;
@@ -74,10 +63,9 @@ input {
   font-family: "Brandon Grotesque", sans-serif;
   font-style: normal;
   font-weight: 500;
-  margin-left: 518px;
+  width: 100%;
 }
 
 #amount {
-  padding-left: 530px;
   font-size: 14px;
 }
