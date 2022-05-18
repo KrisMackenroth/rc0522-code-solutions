@@ -1,0 +1,56 @@
+img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+h1 {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 28px;
+}
+
+p {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 800px;
+}
+
+.column-full {
+  display: flex;
+  width: 800px;
+  text-align: left;
+  justify-content: center;
+  font-family:
+    Barlow,
+    sans-serif;
+}
+
+.column-one-fifth {
+  padding: 10px;
+}
+
+.grey-font {
+  color: #d3d3d3;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.orange-back {
+  background-color: rgb(255 242 231);
+}
