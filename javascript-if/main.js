@@ -22,7 +22,7 @@ function isEven(number) {
 }
 
 function startsWithJ(string) {
-  if (string[0] === 'j') {
+  if (string[0] === 'J') {
     return true;
   }
   return false;
@@ -47,7 +47,7 @@ function isOldEnoughToDrinkAndDrive(person) {
 }
 
 function categorizeAcidity(pH) {
-  if (pH > 14) {
+  if (pH > 14 || pH < 0) {
     return 'invalid pH level';
   } else if (pH > 7) {
     return 'base';
@@ -55,8 +55,6 @@ function categorizeAcidity(pH) {
     return 'neutral';
   } else if (pH < 7) {
     return 'acid';
-  } else if (pH < 0) {
-    return 'invalid pH level';
   }
 }
 
