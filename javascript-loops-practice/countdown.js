@@ -1,10 +1,9 @@
 /* exported countdown */
 function countdown(number) {
-  var count = [];
-  var currentNumber = 0;
-  while (number >= currentNumber) {
-    count.push(number);
+  var num = [];
+  while (number >= 0) {
+    num.push(number);
     number--;
   }
-  return count;
+  return num;
 }
