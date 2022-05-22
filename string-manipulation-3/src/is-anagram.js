@@ -1,11 +1,13 @@
 /* exported isAnagram */
 function isAnagram(firstString, secondString) {
 
-  var first = firstString.split('').sort();
-  var second = secondString.split('').sort();
-  for (var i = 0; i < first.length; i++) {
-    for (var j = 0; j < second.length; j++) {
-      if (first[i] === second[j]) {
+  var first = firstString.replace(' ', '');
+  var firstRun = first.replace(' ', '').split('').sort().join('');
+  var second = secondString.replace(' ', '');
+  var secondRun = second.replace(' ', '').split('').sort().join('');
+  for (var i = 0; i < firstRun.length; i++) {
+    for (var j = 0; j < secondRun.length; j++) {
+      if (firstRun === secondRun) {
         return true;
       }
     }
