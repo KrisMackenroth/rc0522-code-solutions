@@ -2,9 +2,9 @@
 function omit(source, keys) {
   var result = {};
   for (var key in source) {
-    if (source[key] === source[keys]) {
-      delete source[keys];
-    } else result[key] = source[keys];
+    if (keys.includes(key) === false) {
+      result[key] = source[key];
+    }
   }
   return result;
 }
