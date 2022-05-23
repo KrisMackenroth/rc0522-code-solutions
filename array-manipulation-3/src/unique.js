@@ -1,5 +1,5 @@
 /* exported unique */
 function unique(array) {
-  // var newArray = [];
-  // var filter = array.filter();
+  var uniques = Array.from(new Set(array));
+  return uniques;
 }
