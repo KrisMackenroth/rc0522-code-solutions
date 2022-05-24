@@ -1,14 +1,14 @@
 /* exported difference */
 function difference(first, second) {
-  var newArray = first.concat(second);
   var bigArray = [];
   for (var i = 0; i < first.length; i++) {
-    for (var j = 0; j < second.length; j++) {
-      for (var k = 0; k < newArray.length; k++) {
-        if (!newArray.includes(first[i]) && newArray.includes(second[j])) {
-          bigArray.push(newArray);
-        }
-      }
+    if (second.indexOf(first[i]) === -1) {
+      bigArray.push(first[i]);
+    }
+  }
+  for (var j = 0; j < second.length; j++) {
+    if (first.indexOf(second[j]) === -1) {
+      bigArray.push(second[j]);
     }
   }
   return bigArray;
