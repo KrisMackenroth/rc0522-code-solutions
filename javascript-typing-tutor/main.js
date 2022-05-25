@@ -8,5 +8,4 @@ document.addEventListener('keydown', function (e) {
     spanial[temp + 1].classList.add('under-border');
     temp++;
   } else { spanial[temp].className = 'red-text'; }
-
 });
