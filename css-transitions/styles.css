@@ -23,11 +23,11 @@ section {
   color: white;
   background-color: blue;
   transition: red 0.5s;
+  transition: 0.5s;
 }
 
 .custom-button:hover {
   background-color: red;
-  transition: 0.5s;
 }
 
 .card-wrapper {
@@ -43,10 +43,10 @@ section {
   background-color: white;
   cursor: pointer;
   transform: scale(1);
+  transition: 0.5s;
 }
 
 .card:hover {
-  transition: 0.5s;
   transform: scale(1.1, 1.1);
 }
 
