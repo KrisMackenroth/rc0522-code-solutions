@@ -3,14 +3,27 @@ function titleCase(title) {
   var newString = '';
   var lowerCase = title.toLowerCase();
   var split = lowerCase.split(' ');
+
   for (var i = 0; i < split.length; i++) {
-    if (split[i] === 'javascript') {
+
+    if (split[i].includes('-') === true) {
+      var newSplit = split[i].split('-');
+      for (var j = 0; j < newSplit.length; j++) {
+        newSplit[j] = newSplit[j][0].toUpperCase() + newSplit[j].slice(1);
+        split[i] = newSplit.join('-');
+      }
+    } else if (split[i] === 'javascript' || split[i] === 'Javascript') {
       split[i] = 'JavaScript';
     } else if (split[i] === 'api') {
       split[i] = 'API';
-    } else if (split[i] !== 'in' && split[i] !== 'for' && split[i] !== 'of' && split[i] !== 'and') {
+    } else if (split[i].length === 1 && split[i] !== 'a') {
+      split[i] = split[i].toUpperCase();
+    } else if (split[0] === 'the') {
+      split[0] = 'The';
+    } else if (split[i].length > 1 && split[i] !== 'in' && split[i] !== 'for' && split[i] !== 'the' && split[i] !== 'of' && split[i] !== 'to' && split[i] !== 'and' && split[i] !== 'on') {
       split[i] = split[i][0].toUpperCase() + split[i].slice(1);
     }
+
   }
   newString = split.join(' ');
   return newString;
