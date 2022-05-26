@@ -6,6 +6,6 @@ taskList.addEventListener('click', function (event) {
   if (event.target.tagName === 'BUTTON') {
     var close = event.target.closest('.task-list-item');
     console.log(close);
-    close.remove('.task-list-item');
+    close.remove();
   }
 });
