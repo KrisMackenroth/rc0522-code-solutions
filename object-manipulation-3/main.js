@@ -1,4 +1,5 @@
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
+
 var playerOne = { name: 'Kris', hand: {} };
 var playerTwo = { name: 'Cole', hand: {} };
 var playerThree = { name: 'Daniel', hand: {} };
@@ -64,3 +65,4 @@ if (playerOne.total > playerTwo.total && playerOne.total > playerThree.total && 
 } else if (playerFour.total > playerOne.total && playerFour.total > playerTwo.total && playerFour.total > playerThree.total) {
   console.log('Winner:' + ' ' + playerFour.name);
 }
+

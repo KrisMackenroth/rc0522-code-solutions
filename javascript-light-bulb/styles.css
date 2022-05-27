@@ -1,0 +1,40 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-black {
+  background-color: black;
+}
+
+.background-white {
+  background: white;
+}
+
+.circle {
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: none;
+}
+
+.yellow-background {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: none;
+  background-color: #faea84;
+  box-shadow: 0 0 40px 5px #faea84;
+}
+
+.grey-background {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: none;
+  background-color: #252525;
+}
