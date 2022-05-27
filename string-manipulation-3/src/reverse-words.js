@@ -1,4 +1,8 @@
 /* exported reverseWords */
+// Split the string into an array
+// Reverese each word in the new array.
+// Push the reverse array into a new array.
+// Join the array into a string.
 function reverseWords(string) {
   var revWord = string.split(/(\s+)/);
   var newWord = [];
@@ -10,3 +14,8 @@ function reverseWords(string) {
   }
   return joined;
 }
+// Split the string into an array.
+// Create an empty array.
+// Reverese each word in the new array.
+// Push the reverse array into a new array.
+// Join the array into a string.
