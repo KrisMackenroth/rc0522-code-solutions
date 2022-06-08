@@ -14,6 +14,8 @@ var forward = document.querySelector('.forward');
 
 var backward = document.querySelector('.backward');
 
+var buttons = document.querySelector('.buttons');
+
 var count = 1;
 
 function countDecrease() {
@@ -63,29 +65,10 @@ function countDecrease() {
 
 var newInterval = setInterval(countDecrease, 3000);
 
-one.addEventListener('click', function (event) {
+buttons.addEventListener('click', function (event) {
   clearInterval(newInterval);
-  count = 0;
-  countDecrease();
-  one.classList.remove('background-white');
-  one.classList.add('background-black');
   two.classList.remove('background-black');
   two.classList.add('background-white');
-  three.classList.remove('background-black');
-  three.classList.add('background-white');
-  four.classList.remove('background-black');
-  four.classList.add('background-white');
-  five.classList.remove('background-black');
-  five.classList.add('background-white');
-  newInterval = setInterval(countDecrease, 3000);
-  return newInterval;
-});
-two.addEventListener('click', function (event) {
-  clearInterval(newInterval);
-  count = 1;
-  countDecrease();
-  two.classList.remove('background-white');
-  two.classList.add('background-black');
   one.classList.remove('background-black');
   one.classList.add('background-white');
   three.classList.remove('background-black');
@@ -94,63 +77,23 @@ two.addEventListener('click', function (event) {
   four.classList.add('background-white');
   five.classList.remove('background-black');
   five.classList.add('background-white');
-  newInterval = setInterval(countDecrease, 3000);
-  return newInterval;
-});
-three.addEventListener('click', function (event) {
-  clearInterval(newInterval);
-  count = 2;
+  if (event.target.classList.contains('one')) {
+    count = 0;
+  } else if (event.target.classList.contains('two')) {
+    count = 1;
+  } else if (event.target.classList.contains('three')) {
+    count = 2;
+  } else if (event.target.classList.contains('four')) {
+    count = 3;
+  } else if (event.target.classList.contains('five')) {
+    count = 4;
+  }
   countDecrease();
-  three.classList.remove('background-white');
-  three.classList.add('background-black');
-  two.classList.remove('background-black');
-  two.classList.add('background-white');
-  one.classList.remove('background-black');
-  one.classList.add('background-white');
-  four.classList.remove('background-black');
-  four.classList.add('background-white');
-  five.classList.remove('background-black');
-  five.classList.add('background-white');
-  newInterval = setInterval(countDecrease, 3000);
-  return newInterval;
-});
-four.addEventListener('click', function (event) {
-  clearInterval(newInterval);
-  count = 3;
-  countDecrease();
-  four.classList.remove('background-white');
-  four.classList.add('background-black');
-  two.classList.remove('background-black');
-  two.classList.add('background-white');
-  three.classList.remove('background-black');
-  three.classList.add('background-white');
-  one.classList.remove('background-black');
-  one.classList.add('background-white');
-  five.classList.remove('background-black');
-  five.classList.add('background-white');
-  newInterval = setInterval(countDecrease, 3000);
-  return newInterval;
-});
-five.addEventListener('click', function (event) {
-  clearInterval(newInterval);
-  count = 4;
-  countDecrease();
-  five.classList.remove('background-white');
-  five.classList.add('background-black');
-  two.classList.remove('background-black');
-  two.classList.add('background-white');
-  three.classList.remove('background-black');
-  three.classList.add('background-white');
-  four.classList.remove('background-black');
-  four.classList.add('background-white');
-  one.classList.remove('background-black');
-  one.classList.add('background-white');
   newInterval = setInterval(countDecrease, 3000);
   return newInterval;
 });
 
 backward.addEventListener('click', function (event) {
-
   clearInterval(newInterval);
   count = count - 2;
   if (count === 0) {
