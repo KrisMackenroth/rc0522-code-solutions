@@ -115,8 +115,7 @@ backward.addEventListener('click', function (event) {
 });
 
 forward.addEventListener('click', function (event) {
-  count++;
-  count = count - 1;
+
   clearInterval(newInterval);
   countDecrease();
   newInterval = setInterval(countDecrease, 3000);
