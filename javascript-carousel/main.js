@@ -19,11 +19,7 @@ var buttons = document.querySelector('.buttons');
 var count = 1;
 
 function countDecrease() {
-  if (count === 0) {
-    image.setAttribute('src', 'images/001.png');
-    one.classList.add('background-black');
-    five.classList.remove('background-black');
-  } else if (count === 1) {
+  if (count === 1) {
     image.setAttribute('src', 'images/004.png');
     one.classList.remove('background-black');
     two.classList.add('background-black');
@@ -39,6 +35,11 @@ function countDecrease() {
     image.setAttribute('src', 'images/039.png');
     four.classList.remove('background-black');
     five.classList.add('background-black');
+  } else if (count === 5 || count === 0) {
+    count = 0;
+    image.setAttribute('src', 'images/001.png');
+    one.classList.add('background-black');
+    five.classList.remove('background-black');
   }
   count++;
   return count;
