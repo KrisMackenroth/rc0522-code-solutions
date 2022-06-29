@@ -14,4 +14,4 @@ if (process.argv[3] === 'add') {
   console.log('result: ', multiply(intProcess, intProcessTwo));
 } else if (process.argv[3] === 'divide') {
   console.log('result: ', divide(intProcess, intProcessTwo));
-}
+} else console.log('Invalid Operation');
