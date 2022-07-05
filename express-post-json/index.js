@@ -27,6 +27,6 @@ app.post('/api/grades', function (req, res) {
   newGrade.id = id;
   grades[id] = newGrade;
 
-  res.status(201).end();
   nextId++;
+  res.status(201).json(newGrade);
 });
