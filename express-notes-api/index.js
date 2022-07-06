@@ -23,7 +23,7 @@ app.get('/api/notes/:id', function (req, res) {
     } else {
       res.status(200).send(json.notes[id]);
     }
-  } else if (req.params.id <= 0) {
+  } else {
     const error = { error: 'Input is not a positive integer.' };
     res.status(400).send(error);
   }
