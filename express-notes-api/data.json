@@ -1,5 +1,5 @@
 {
-  "nextId": 11,
+  "nextId": 12,
   "notes": {
     "2": {
       "id": 2,
@@ -10,7 +10,7 @@
       "content": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined."
     },
     "6": {
-      "content": "test two test.",
+      "content": "i am so cool.",
       "id": 6
     }
   }
