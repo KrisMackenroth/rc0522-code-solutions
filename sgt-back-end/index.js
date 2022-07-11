@@ -88,11 +88,12 @@ app.post('/api/grades', function (req, res) {
     res.status(400).json(error);
     return;
   }
-  const body = req.body;
+
   const empty = [];
-  for (const x in body) {
-    empty.push(body[x]);
-  }
+  empty[0] = req.body.name;
+  empty[1] = req.body.course;
+  empty[2] = req.body.score;
+
   const sql = `
   insert into "grades" ("name", "course", "score")
   values ($1, $2, $3)
@@ -126,40 +127,32 @@ app.delete('/api/grades/:gradeId', (req, res, next) => {
     });
     return;
   }
-  const test = `
-    select "gradeId",
-           "name",
-           "course",
-           "score",
-           "createdAt"
-      from "grades"
-     where "gradeId" = $1
-  `;
+
   const params = [gradeId];
-  db.query(test, params)
+
+  const sql = `
+  delete from "grades"
+ where "gradeId" = $1
+ returning *
+  `;
+  db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
       if (!grade) {
         res.status(404).json({
           error: `Cannot find grade with gradeId: ${gradeId}`
         });
-        return;
+      } else {
+        res.status(204).send();
       }
-      const sql = `
-  delete from "grades"
- where "gradeId" = $1
-  `;
-      db.query(sql, params)
-        .then(result => {
-          res.status(204).send();
-        })
-        .catch(err => {
-          console.error(err);
-          res.status(500).json({
-            error: 'An unexpected error occurred.'
-          });
-        });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
     });
+
 });
 
 app.put('/api/grades/:gradeId', (req, res, next) => {
@@ -185,12 +178,12 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     res.status(400).json(error);
     return;
   }
-  const body = req.body;
   const empty = [];
-  for (const x in body) {
-    empty.push(body[x]);
-  }
-  empty.push(gradeId);
+  empty[0] = req.body.name;
+  empty[1] = req.body.course;
+  empty[2] = req.body.score;
+  empty[3] = gradeId;
+
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a positive integer'
@@ -202,17 +195,10 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
    set "name" = $1,
     "course" = $2,
     "score" = $3
- where "gradeId" = $4;
+ where "gradeId" = $4
+ returning *
   `;
-  db.query(sql, empty);
-  const row = `
-    select "gradeId",
-           "createdAt"
-      from "grades"
-     where "gradeId" = $1;
-  `;
-  const params = [gradeId];
-  db.query(row, params)
+  db.query(sql, empty)
     .then(result => {
       const grade = result.rows[0];
       if (!grade) {
@@ -220,9 +206,6 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
           error: `Cannot find grade with gradeId: ${gradeId}`
         });
       } else {
-        grade.name = req.body.name;
-        grade.course = req.body.course;
-        grade.score = req.body.score;
         res.status(200).json(grade);
       }
     })
