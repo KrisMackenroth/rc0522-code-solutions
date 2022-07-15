@@ -1,0 +1,51 @@
+#root {
+  display: flex;
+}
+
+.on {
+  background-color: green;
+  border-radius: 5px;
+  width: 30px;
+  height: 15px;
+  position: relative;
+  margin: 10px;
+}
+
+.off {
+  background-color: grey;
+  border-radius: 5px;
+  width: 30px;
+  height: 15px;
+  position: relative;
+  margin: 10px;
+}
+
+.left {
+  border-radius: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  height: 70%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.right {
+  border-radius: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  height: 70%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.type {
+  margin: 10px;
+}
