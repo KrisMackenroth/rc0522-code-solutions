@@ -17,7 +17,11 @@ export default class StopWatch extends React.Component {
   handleClick() {
     if (this.state.isClicked === false) {
       this.setState({ isClicked: true });
-    } else this.setState({ isClicked: false });
+      this.start();
+    } else {
+      this.setState({ isClicked: false });
+      this.stop();
+    }
   }
 
   handleTimer() {
@@ -44,8 +48,6 @@ export default class StopWatch extends React.Component {
   render() {
     let icon;
     if (this.state.isClicked === true) {
-      this.stop();
-      this.start();
       icon = 'fa-solid fa-pause';
     } else {
       icon = 'fa-solid fa-play';
