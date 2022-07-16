@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+  border: 5px solid black;
+}
