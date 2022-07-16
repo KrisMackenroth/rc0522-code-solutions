@@ -1,0 +1,17 @@
+.hidden {
+  display: none;
+}
+
+.visible {
+  color: red;
+}
+
+.bad {
+  color: red;
+  margin: 10px;
+}
+
+.good {
+  color: green;
+  margin: 10px;
+}
