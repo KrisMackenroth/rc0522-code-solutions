@@ -3,8 +3,25 @@ ul {
 }
 
 li {
-  height: 100px;
-  width: 100px;
-  background-color: pink;
-  border: 5px solid black;
+  height: 50px;
+  width: 150px;
+  background-color: lightgrey;
+  border: 2px solid black;
+  overflow-wrap: break-word;
+}
+
+.closed {
+  text-align: center;
+}
+
+.open {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  background-color: white;
 }
