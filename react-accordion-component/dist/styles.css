@@ -2,7 +2,8 @@ ul {
   list-style-type: none;
 }
 
-li {
+.closed {
+  text-align: center;
   height: 50px;
   width: 150px;
   background-color: lightgrey;
@@ -10,12 +11,13 @@ li {
   overflow-wrap: break-word;
 }
 
-.closed {
-  text-align: center;
-}
-
 .open {
   text-align: center;
+  height: 50px;
+  width: 150px;
+  background-color: lightgrey;
+  border: 2px solid black;
+  overflow-wrap: break-word;
 }
 
 .hidden {
@@ -23,5 +25,9 @@ li {
 }
 
 .visible {
+  height: 50px;
+  width: 150px;
+  border: 2px solid black;
+  overflow-wrap: break-word;
   background-color: white;
 }

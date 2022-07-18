@@ -5,4 +5,12 @@ import Accordion from './accordion';
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 
-root.render(<Accordion />);
+const topics = [
+  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Bulbasaur' },
+  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Charmander' },
+  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Squirtle' },
+  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Pikachu' },
+  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Jigglypuff' }
+];
+
+root.render(<Accordion topics={topics} />);

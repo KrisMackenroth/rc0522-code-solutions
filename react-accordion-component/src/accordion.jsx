@@ -1,36 +1,29 @@
 import React from 'react';
 
-const topics = [
-  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Bulbasaur' },
-  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Charmander' },
-  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Squirtle' },
-  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Pikachu' },
-  { description: 'jdfksadflksajdfjdfksadflksajdfjdfksadflksajdf', name: 'Jigglypuff' }
-];
-
 export default class Accordion extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isClicked: 'false' };
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      activeIndex: null
+    };
   }
 
-  handleClick(event) {
-    if (event.target.className === 'closed') {
-      for (let x = 0; x < event.target.parentElement.parentElement.children.length; x++) {
-        event.target.parentElement.parentElement.children[x].children[0].className = 'closed';
-        event.target.parentElement.parentElement.children[x].children[1].className = 'hidden';
-        event.target.className = 'open';
-        event.target.nextElementSibling.className = 'visible';
-      }
+  handleClick(index) {
+    if (this.state.activeIndex === index) {
+      this.setState({ activeIndex: null });
     } else {
-      event.target.className = 'closed';
-      event.target.nextElementSibling.className = 'hidden';
+      this.setState({ activeIndex: index });
     }
   }
 
   render() {
-    const listItems = topics.map(topic => <div key={topic.name}><li className='closed' onClick={this.handleClick} key={topic.name}>{topic.name}</li><li className='hidden'>{topic.description}</li></div>);
+    const listItems = this.props.topics.map((topic, index) => (
+      <div key={topic.name}>
+        <div className={this.state.activeIndex === index ? 'open' : 'closed'} onClick={() => this.handleClick(index)}>{topic.name}</div>
+        <div className={this.state.activeIndex === index ? 'visible' : 'hidden'}>{topic.description}</div>
+      </div>
+    ));
     return (
       <ul>
         {listItems}
