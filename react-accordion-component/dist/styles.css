@@ -1,0 +1,33 @@
+ul {
+  list-style-type: none;
+}
+
+.closed {
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  background-color: lightgrey;
+  border: 2px solid black;
+  overflow-wrap: break-word;
+}
+
+.open {
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  background-color: lightgrey;
+  border: 2px solid black;
+  overflow-wrap: break-word;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  height: 50px;
+  width: 150px;
+  border: 2px solid black;
+  overflow-wrap: break-word;
+  background-color: white;
+}
