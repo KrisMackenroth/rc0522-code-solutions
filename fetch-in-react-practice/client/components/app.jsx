@@ -60,25 +60,25 @@ export default class App extends React.Component {
   }
 
   toggleCompleted(todoId) {
-
     const full = this.state.todos;
     function test(index) {
       return index.todoId === todoId;
     }
     const index = full.findIndex(test);
     const status = this.state.todos[index].isCompleted;
-    const opposite = !status;
+    const body = { isCompleted: !status };
     const requestConfig = {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(full[index])
+      body: JSON.stringify(body)
     };
 
     fetch(`/api/todos/${todoId}`, requestConfig)
       .then(response => response.json())
       .then(todo => {
-        const full = this.state.todos;
-        full[index].isCompleted = opposite;
+        const full = [...this.state.todos]; // Make a copy of the array
+        full[index] = todo; // Replace updated todo with todo from the server
+
         this.setState({ todos: full });
       });
 
