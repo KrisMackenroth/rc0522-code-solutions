@@ -1,0 +1,27 @@
+User can Sign Up:
+If the user is signing up, they send a post request with the request
+being their username and password. If the password and username are entered properly,
+the password is then hashed, and then the username and hashed password are queried into
+the database.
+
+User can Sign In:
+If the user is signing in, they send a post request with their username and password.
+Once the username and password are properly inputed, the database is queried to determine
+if that username exists. If it does, the password that was entered is verified to be matching
+the hashed password that is within the database. If they match, a token for the user is created
+to authorize that they are signed in.
+
+The token that was given to the user is saved to localStoreage in order to ensure that the token stays with
+them while they continue to remained signed in.
+
+User can stay signed in (even if they refresh the page):
+If the user signed in properly, the token they were given is saved to local storage.
+If the page is reloaded, the page checks if there is a token that has been saved to local
+storage. If there is a token saved to local storage, the token is decoded to determine who the user
+currently is and keeps them logged in. If there is no token, the page reloads to the login and sign up page.
+
+
+
+User can Sign Out:
+When the user wishes to sign out, the token that was saved to local storage is removed and the
+state of the user is set to null. If the user is null, the page switches to the login and sign up view.
