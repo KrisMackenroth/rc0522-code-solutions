@@ -76,6 +76,7 @@ export default class AuthForm extends React.Component {
             onChange={handleChange}
             className="form-control bg-light" />
         </div>
+
         <div className="d-flex justify-content-between align-items-center">
           <small>
             <a className="text-muted" href={alternateActionHref}>
