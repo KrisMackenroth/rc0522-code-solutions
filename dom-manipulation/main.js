@@ -1,23 +1,58 @@
-var counter = 0;
+const noteCards = [
+  { card: 1, question: '1 + 1', answer: '2' },
+  { card: 2, question: '1 + 2', answer: '2' },
+  { card: 3, question: '1 + 3', answer: '2' },
+  { card: 4, question: '1 + 4', answer: '2' },
+  { card: 5, question: '1 + 5', answer: '2' }
+];
 
-var hotButton = document.querySelector('.hot-button');
+const cardList = document.querySelector('#note-card');
 
-var clickCount = document.querySelector('.click-count');
+function cardCreate(info) {
+  const $con = document.createElement('div');
+  const $temp = document.createElement('h3');
 
-hotButton.addEventListener('click', function (event) {
-  counter++;
-  clickCount.textContent = 'Clicks:' + counter;
-  if (counter < 4) {
-    hotButton.className = 'hot-button cold';
-  } else if (counter < 7) {
-    hotButton.className = 'hot-button cool';
-  } else if (counter < 10) {
-    hotButton.className = 'hot-button tepid';
-  } else if (counter < 13) {
-    hotButton.className = 'hot-button warm';
-  } else if (counter < 16) {
-    hotButton.className = 'hot-button hot';
-  } else {
-    hotButton.className = 'hot-button nuclear';
-  }
-});
+  $con.classList.add('card');
+  $con.classList.add('question');
+  $temp.classList.add('heading');
+
+  $temp.textContent = info.question;
+
+  $con.appendChild($temp);
+
+  $con.addEventListener('click', function (event) {
+    if ($con.classList.contains('question')) {
+      $temp.textContent = info.answer;
+      $con.classList.remove('question');
+      $con.classList.add('answer');
+    } else {
+      $temp.textContent = info.question;
+      $con.classList.remove('answer');
+      $con.classList.add('question');
+    }
+  });
+  return $con;
+}
+
+let count = 0;
+
+const card = cardCreate(noteCards[count]);
+
+cardList.appendChild(card);
+
+const forward = document.querySelector('.forward');
+
+const backward = document.querySelector('.backward');
+
+forward.addEventListener('click', movement);
+
+backward.addEventListener('click', movement);
+
+function movement(event) {
+  if (event.target.classList.contains('forward') && count < 5) {
+    count++;
+  } else if (count > 0) { count--; }
+  const test = cardCreate(noteCards[count]);
+  cardList.removeChild(cardList.firstElementChild);
+  cardList.appendChild(test);
+}
