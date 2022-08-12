@@ -1,12 +1,14 @@
 /* global LinkedList */ // eslint-disable-line no-unused-vars
 /* exported append */
 
-// function append(list, value) {
-//   const head = new LinkedList(value);
-//   let test = list;
-//   while (test.next !== null) {
-//     test = test.next;
-//   }
+function append(list, value) {
+  const newNode = new LinkedList(value);
 
-//   console.log(list.print());
-// }
+  let current = list;
+  while (current.next) {
+    current = current.next;
+  }
+  current.next = newNode;
+  return list.data;
+
+}
