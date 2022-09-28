@@ -1,0 +1,23 @@
+.flag {
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.row {
+  width: 100%;
+}
